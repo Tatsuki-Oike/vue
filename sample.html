@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- マスタッシュ構文 -->
+        {{ sample_data }}
+        
+        <!-- ディレクティブ -->
+        <img v-bind:src="url" alt="">
+        <p v-if="flag"> p1Flag </p>
+        <ul>
+            <template v-for="item in item_list">
+                <li>{{ item_list }}</li>
+            </template>
+        </ul>
+        <button type="button" v-on:click="plus"> click+ </button>
+        <input class="form-control" type="text" v-model="input">
+
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const appdata = {
+            data(){
+                return {
+                    message: "Hello, World"
+                }
+            },
+            computed: {
+                withTax(){
+                    return this.price * 1.1
+                }
+            },
+            methods: {
+                add_todo(){
+                    this.todo_list.push(
+                        this.input
+                    )
+                    this.input = ""
+                }
+            }
+        }
+
+        Vue.createApp(appdata).mount("#app")
+    </script>
+</body>
+</html>

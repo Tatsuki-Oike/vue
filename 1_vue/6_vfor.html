@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+    <div id="app", class="container">
+        <h2> List for文 </h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Mail </th>
+                    <th> Tel </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template v-for="user in users_list">
+                    <tr>
+                        <td> {{ user.name }} </td>
+                        <td> {{ user.mail }} </td>
+                        <td> {{ user.tel }} </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+        <h2> List for文 (id) </h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> ID </th>
+                    <th> Name </th>
+                    <th> Mail </th>
+                    <th> Tel </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template v-for="(user, id) in users_list">
+                    <tr>
+                        <td> {{ id }} </td>
+                        <td> {{ user.name }} </td>
+                        <td> {{ user.mail }} </td>
+                        <td> {{ user.tel }} </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+        <h2> Object for文 </h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Mail </th>
+                    <th> Tel </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template v-for="(value, key, id) in users_obj">
+                    <tr>
+                        <td> {{ key }} </td>
+                        <td> {{ value.mail }} </td>
+                        <td> {{ value.tel }} </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+        <h2> Object for文 (id) </h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> ID </th>
+                    <th> Name </th>
+                    <th> Mail </th>
+                    <th> Tel </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template v-for="(value, key, id) in users_obj">
+                    <tr>
+                        <td> {{ id }} </td>
+                        <td> {{ key }} </td>
+                        <td> {{ value.mail }} </td>
+                        <td> {{ value.tel }} </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+        const appdata = {
+            data(){
+                return {
+                    users_list: [
+                        {name: "Ichiro", mail: "Ichiro.example.com", tel: "000-0000"},
+                        {name: "Jiro", mail: "Jiro.example.com", tel: "111-1111"},
+                        {name: "Sanro", mail: "Sanro.example.com", tel: "222-2222"},
+                    ],
+                    users_obj: {
+                        "Ichiro": {mail: "Ichiro.example.com", tel: "000-0000"},
+                        "Jiro": {mail: "Jiro.example.com", tel: "111-1111"},
+                        "Sanro": {mail: "Sanro.example.com", tel: "222-2222"},
+                    }
+                }
+            }
+        }
+
+        Vue.createApp(appdata).mount("#app")
+    </script>
+</body>
+</html>

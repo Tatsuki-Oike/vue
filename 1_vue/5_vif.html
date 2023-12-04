@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+    <h1> Vue3 </h1>
+    <div id="app", class="container">
+        <h2> v-if </h2>
+        <p v-if="p1Flag"> p1Flag </p>
+        <p v-if="p2Flag"> p2Flag </p>
+
+        <h2> v-if v-else-if v-else </h2>
+        <p v-if="type === 'A'"> typeA </p>
+        <p v-else-if="type === 'B'"> typeB </p>
+        <p v-else> Not A/B </p>
+
+        <h2> template </h2>
+        <template v-if="p1Flag">
+            <p> template </p>
+        </template>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+        const appdata = {
+            data(){
+                return {
+                    p1Flag: true,
+                    p2Flag: false,
+                    type: "B"
+                }
+            }
+        }
+
+        Vue.createApp(appdata).mount("#app")
+    </script>
+</body>
+</html>
